@@ -1,0 +1,34 @@
+# --- data that must never be committed -------------------------------------
+*.dta
+*.DTA
+*.sav
+*.sas7bdat
+*.xpt
+*.parquet
+*.feather
+data/raw_synthetic/
+data/derived/
+
+# --- generated outputs -----------------------------------------------------
+out/
+logs/
+figures/*
+!figures/.gitkeep
+
+# --- R / Python ------------------------------------------------------------
+.Rhistory
+.RData
+.Rproj.user/
+.Renviron
+__pycache__/
+*.pyc
+.venv/
+renv/library/
+
+# --- editors / OS ----------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+_supp.md
+logs_summary.txt
+data/

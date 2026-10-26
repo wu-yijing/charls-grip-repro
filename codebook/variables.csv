@@ -1,0 +1,32 @@
+variable,label,source,construction
+ID,respondent identifier,all waves,2011 files use an 11-character ID; conv11() restores the 12-character form
+g11,grip strength 2011,2011 biomarkers qc003-qc006,maximum of four trials; 0/993/999 and >80 kg set to missing
+g13,grip strength 2013,2013 Biomarker qc003-qc006,as above
+g15,grip strength 2015,2015 Biomarker qc003-qc006,as above
+a11,any ADL limitation 2011,2011 health_status db010-db015,1 if any of six items scored 3 or 4
+a13,any ADL limitation 2013,2013 Health_Status db010-db015,as above; the landmark eligibility variable
+aD,any ADL limitation 2018,2018 Health_Status db010-db015,as above
+aD4,ADL inability 2018,same,1 only if an item scored 4 (stricter definition)
+aC,ADL or IADL limitation 2018,2018 Health_Status db010-db020,any of eleven items scored 3 or 4
+dead18,death by 2018,2018 Sample_Infor died,1 if died
+age13,age in 2013,demographic ba002_1,2013 minus birth year
+male,sex,demographic rgender,1 male 0 female
+edu,education,demographic bd001,6 raw levels collapsed to five categories
+bmi,body mass index 2013,2013 Biomarker qi002/ql002,weight/(height/100)^2; implausible values set to missing
+nchronic,chronic conditions,2011 health_status da007_1_-da007_14_,count of conditions; missing if fewer than 10 items answered
+cesd,depressive symptoms 2013,2013 Health_Status dc009-dc018,ten items; dc013 and dc016 reverse-scored; rescaled to ten items when >=8 answered (range 0-30)
+smoke,current smoking 2011,2011 health_status da059,1 current smoker
+w13,2013 individual weight,2013 Weights INDV_weight_ad2,design weight
+w11,2011 individual weight,2011 weight ind_weight_ad2,design weight
+w18,2018 individual weight,2018 Weights INDV_weight_ad2,design weight
+communityID,primary sampling unit,2013 Weights / 2011 PSU,clustering variable
+stratum,sampling stratum,2011 PSU province_eng x urban_nbs,paste(province urban sep=_)
+low11_19,low grip 2011 (AWGS 2019),derived,g11 < 28 kg men / 18 kg women
+low13_19,low grip 2013 (AWGS 2019),derived,as above
+low11_25,low grip 2011 (AWGS 2025),derived,<34/<20 kg at ages 50-64 and <28/<18 kg at 65+
+low13_25,low grip 2013 (AWGS 2025),derived,as above
+grp19,four-group pattern (2019),derived,never/remitted/incident/persistent from low11_19 and low13_19
+grp25,four-group pattern (2025),derived,as above using the 2025 cut-offs
+oc,three-category outcome,derived,0 alive and ADL-free 1 ADL disability 2 death
+oc4,outcome with inability definition,derived,as oc using aD4
+ocC,outcome with ADL+IADL composite,derived,as oc using aC

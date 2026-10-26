@@ -1,0 +1,14 @@
+exhibit,description,script,output
+Figure 1,cohort selection flow,20a_cohort_facts.R,out/20a_cohort_facts.txt
+Figure 2,reproducibility panels A-B,07b_figure2.R,figures/Figure_2.png
+Table 1,baseline characteristics by pattern,01_build.R + 15_table1_cesd.R,out/jamda_full.rds
+Table 2,outcomes and adjusted RRRs,06b_weighted_mi_main.R,out/S2_weighted_MI_rrr.csv
+Table 3,standardized five-year risks,20b_design_mi.R + 20c_table3ci_ipcw.R,out/S6_absolute_risk_ci.csv
+Table S1,2019 vs 2025 cut-offs,02_awgs2025.R,out/S1_rrr_19_vs_25.csv
+Table S2,weighted and design-based models,03_weighted.R,out/S2_multinom_weighted.csv
+Table S3,incremental predictive value,04_incremental.R,out/S3_incremental.csv
+Table S4,agreement statistics,05_kappa.R + 21_enhanced_A.R,out/21_enhanced_A_v2.txt
+Table S5,sensitivity analyses,20b_design_mi.R,out/S5_sensitivity_all.csv
+Table S6,confidence intervals for absolute risks,20c_table3ci_ipcw.R,out/S6_absolute_risk_ci.csv
+Table S7,reproducibility panels A-D,21_enhanced_A.R + 22_null_sim.R + 23_null_sensitivity.R,out/21_enhanced_A_v2.txt
+Table S8,decision curve analysis,04_incremental.R + 24_n5_mi_recheck.R,out/S3_incremental.csv

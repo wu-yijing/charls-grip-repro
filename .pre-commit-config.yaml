@@ -1,0 +1,17 @@
+# Optional: for users who already have https://pre-commit.com installed.
+# The same checks run without it via .githooks/pre-commit (see README).
+repos:
+  - repo: local
+    hooks:
+      - id: no-microdata
+        name: block respondent-level data
+        entry: python3 tools/check_no_microdata.py --staged
+        language: system
+        always_run: true
+        pass_filenames: false
+      - id: no-large-files
+        name: block files over 10 MiB
+        entry: python3 tools/check_size.py --staged
+        language: system
+        always_run: true
+        pass_filenames: false

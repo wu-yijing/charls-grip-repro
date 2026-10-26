@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+# Local guard, no extra dependencies. Enable with:  git config core.hooksPath .githooks
+ROOT=$(git rev-parse --show-toplevel) || exit 1
+for PY in python3 python py; do
+  if command -v "$PY" >/dev/null 2>&1; then
+    exec "$PY" "$ROOT/tools/check_no_microdata.py" --staged
+  fi
+done
+echo "pre-commit: no python interpreter found; skipping microdata guard" >&2
+exit 0
