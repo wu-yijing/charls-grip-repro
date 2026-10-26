@@ -19,7 +19,7 @@ mn_cluster_vcov <- function(fit, X, y, w, cluster){
   B <- matrix(coef(fit), nrow=K, ncol=p, byrow=FALSE)   # K x p
   eta <- X %*% t(B)
   P <- exp(cbind(0, eta)); P <- P/rowSums(P)
-  Y <- sapply(1:2, function(k) as.numeric(y==k+1))     # disabled, dead
+  Y <- sapply(1:2, function(k) as.numeric(y==k))       # disabled, dead
   # bread: A = sum_i w_i * W_i (x) x x'
   A <- matrix(0, K*p, K*p)
   Wm <- list()
@@ -83,7 +83,7 @@ for (cut in c("19","25")) {
   beta <- matrix(coef(fitw), nrow=2, byrow=FALSE)
   colnames(beta) <- colnames(X)
   vc <- mn_cluster_vcov(fitw, X, as.integer(d$y)-1, w, d$communityID)
-  sew <- matrix(sqrt(diag(vc$V)), nrow=2, byrow=FALSE)
+  sew <- matrix(sqrt(diag(vc$V)), nrow=2, byrow=TRUE)
   colnames(sew) <- colnames(X)
   cat("clusters used:", vc$G, "\n")
   t_w <- mk_tab(beta, sew, paste0("weighted + cluster-robust (", cut, ")"), nrow(d))
@@ -91,7 +91,7 @@ for (cut in c("19","25")) {
   fitu <- multinom(f, data=d, trace=FALSE, maxit=500)
   bu <- matrix(coef(fitu), nrow=2, byrow=FALSE); colnames(bu) <- colnames(X)
   vu <- mn_cluster_vcov(fitu, X, as.integer(d$y)-1, rep(1,nrow(d)), d$communityID)
-  seu <- matrix(sqrt(diag(vu$V)), nrow=2, byrow=FALSE); colnames(seu) <- colnames(X)
+  seu <- matrix(sqrt(diag(vu$V)), nrow=2, byrow=TRUE); colnames(seu) <- colnames(X)
   t_u <- mk_tab(bu, seu, paste0("unweighted + cluster-robust (", cut, ")"), nrow(d))
   cat("\n--- weighted multinomial, cluster-robust by community ---\n")
   print(t_w[, c("outcome","group","RRR","lo","hi","p")], row.names=FALSE)
@@ -139,7 +139,7 @@ for (wc in c("w11","w13","w13_long")) {
   fit <- multinom(f, data=d, weights=w, trace=FALSE, maxit=500)
   beta <- matrix(coef(fit), nrow=2, byrow=FALSE); colnames(beta) <- colnames(X)
   vc <- mn_cluster_vcov(fit, X, as.integer(d$y)-1, w, d$communityID)
-  se <- matrix(sqrt(diag(vc$V)), nrow=2, byrow=FALSE); colnames(se) <- colnames(X)
+  se <- matrix(sqrt(diag(vc$V)), nrow=2, byrow=TRUE); colnames(se) <- colnames(X)
   cat(sprintf("%-8s n=%d | disabled: remi %.2f inci %.2f pers %.2f | dead: remi %.2f inci %.2f pers %.2f\n",
     wc, nrow(d),
     exp(beta[1,"grpremitted"]), exp(beta[1,"grpincident"]), exp(beta[1,"grppersistent"]),
