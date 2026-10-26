@@ -6,8 +6,12 @@
 > Study (<http://charls.pku.edu.cn>) under a data-use agreement that prohibits redistribution; the
 > individual-level files therefore cannot be deposited or shared by the authors. The analysis code
 > (26 scripts), the analysis specification, a synthetic dataset of identical structure, and the
-> fitted model objects are available at [repository URL] and archived at Zenodo (DOI: [DOI]).
+> fitted model objects are openly available at Zenodo (DOI 10.5281/zenodo.23677282, version 1.0.1).
 > Estimates underlying every table and figure are reported in the manuscript and supplementary tables.
+
+The quoted passage is the statement as it appears in the manuscript. The code is also browsable at
+<https://github.com/wu-yijing/charls-grip-repro>, but the Zenodo record — not the repository — is the
+archival copy, and the one to cite.
 
 ## Why the individual-level files cannot be posted
 
