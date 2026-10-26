@@ -54,13 +54,13 @@ for f in "${ORDER[@]}"; do
   fi
 done
 
-{
-  echo "script,status,seconds"
-  # (per-script lines are also printed above)
-} > /dev/null
+printf 'passed: %s\nfailed: %s\n' "$pass" "$fail" > logs_summary.txt
+[ -n "$failed" ] && printf 'FAILED_SCRIPTS:%s\n' "$failed" >> logs_summary.txt
 
 echo
-echo "passed: $pass | failed: $fail" | tee logs_summary.txt
-[ -n "$failed" ] && echo "failed scripts:$failed" | tee -a logs_summary.txt
-[ $fail -eq 0 ] || exit 1
+echo "passed: $pass  failed: $fail"
+if [ "$fail" -gt 0 ]; then
+  echo "failed:$failed"
+  exit 1
+fi
 exit 0

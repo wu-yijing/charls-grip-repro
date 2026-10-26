@@ -31,7 +31,8 @@ jobs:
 
       - name: Fail if any script failed
         run: |
-          if grep -q '^FAIL' logs_summary.txt 2>/dev/null; then exit 1; fi
+          cat logs_summary.txt
+          grep -q '^failed: 0$' logs_summary.txt
           test -f out/jamda_full.rds
           test -f figures/Figure_2.png
           test -f out/Supplementary_Tables_S1-S3.docx

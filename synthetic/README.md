@@ -17,3 +17,7 @@ regenerated, and no one can mistake a committed table for respondent data.
 **The synthetic cohort does not reproduce the published estimates.** It exists to prove that the
 code runs and that every exhibit can be rebuilt; the published numbers are in the manuscript and
 supplementary tables, and `model/fit_store.rds` reproduces Table 3 from the fitted parameters.
+
+**Where the file actually lives.** The git history ships the generator only. The Zenodo snapshot
+taken from a release includes `jamda_synthetic.csv` (≈3.8 MB) so that a reader without R can still
+obtain the simulated cohort; that archival copy is what the manuscript cites.

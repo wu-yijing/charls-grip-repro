@@ -2,8 +2,9 @@
 
 **Reproducibility of a single low grip strength reading and the absence of incremental prognostic value of a prior reading: a five-year cohort study of 6,052 middle-aged and older Chinese adults**
 
-This repository contains the analysis code, the analysis specification, a synthetic dataset of
-identical structure, and the fitted model objects for the manuscript. It contains **no CHARLS
+This repository contains the 26 analysis scripts (plus a synthetic-data generator and a shared
+helper library), the analysis specification, a synthetic dataset of identical structure, and the
+fitted model objects for the manuscript. It contains **no CHARLS
 data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for what is shared instead.
 
 ---
@@ -14,12 +15,12 @@ data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for wha
 # 1. generate a synthetic raw file set (11 .dta files, ~30 MB; nothing real)
 Rscript code/00_make_synthetic_raw.R
 
-# 2. run all 26 scripts in dependency order (writes to out/, figures/, logs/)
+# 2. run all 27 steps in dependency order (26 analysis scripts + the generator)
 bash run_all.sh
 ```
 
-`run_all.sh` prints one `PASS`/`FAIL` line per script and exits 0 regardless, so the full table is
-always visible. Every script writes its own log to `logs/`.
+`run_all.sh` prints one `PASS`/`FAIL` line per step, writes `logs_summary.txt`, and exits 1 if any
+step failed (so CI fails loudly). Every step writes its own log to `logs/`.
 
 Requirements: R ≥ 4.2 (`haven`, `dplyr`, `nnet`, `sandwich`, `pROC`, `mice`, `survey`) and
 Python 3 with `python-docx` for the supplementary-table builder.
