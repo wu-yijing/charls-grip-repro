@@ -1,3 +1,23 @@
+# --- manuscripts and submission documents: never commit --------------------
+# The manuscript, cover letter, highlights, response letters and reviewer
+# correspondence are not part of the reproducibility package and must not be
+# published. `git check-ignore -v manuscript.docx` should echo a line from here.
+*.docx
+*.doc
+*.pdf
+*.tex
+*.rtf
+*.odt
+manuscript/
+submission/
+cover*/
+response*/
+review*/
+_archive/
+~$*
+*.docx.bak
+*.orig_bak
+
 # --- data that must never be committed -------------------------------------
 *.dta
 *.DTA

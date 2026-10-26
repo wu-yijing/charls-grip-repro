@@ -1,6 +1,6 @@
 # Reproducibility package
 
-**Reproducibility of a single low grip strength reading and the absence of incremental prognostic value of a prior reading: a five-year cohort study of 6,052 middle-aged and older Chinese adults**
+**Reproducibility of low grip strength classification and the incremental value of a prior reading beyond the current value: a five-year cohort study of 6,052 Chinese adults**
 
 This repository contains the 26 analysis scripts (plus a synthetic-data generator and a shared
 helper library), the analysis specification, a synthetic dataset of identical structure, and the

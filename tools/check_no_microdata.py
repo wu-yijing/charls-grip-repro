@@ -13,6 +13,11 @@ Rules
   2. Any .csv/.tsv whose header contains an identifier or design column
      (ID, communityID, province, stratum, urban, ...) or that has > 1000 rows.
   3. Any single file larger than 10 MiB.
+  4. Manuscript and submission documents (rule added 2026-10-26): .docx .doc
+     .pdf .tex .rtf .odt anywhere, and any path whose name contains
+     manuscript / draft / submitted / response-to / cover-letter / highlights /
+     strobe. The repository publishes code, a codebook and a synthetic dataset;
+     the paper itself is not part of it.
 
 Usage
   python3 tools/check_no_microdata.py --staged     # pre-commit
@@ -24,6 +29,11 @@ import sys
 
 MAX_BYTES = 10 * 1024 * 1024
 FORBIDDEN_EXT = {".dta", ".sav", ".sas7bdat", ".xpt", ".rds", ".rdata", ".parquet", ".feather"}
+DOC_EXT = {".docx", ".doc", ".pdf", ".tex", ".rtf", ".odt"}
+DOC_NAME_HINTS = (
+    "manuscript", "draft", "submitted", "under_review", "response_to",
+    "cover_letter", "coverletter", "highlights", "strobe", "reviewer",
+)
 TABULAR_EXT = {".csv", ".tsv", ".txt"}
 ID_COLUMNS = {
     "id", "communityid", "community", "province", "stratum", "urban", "psu",
@@ -70,6 +80,11 @@ def check(path):
     ext = os.path.splitext(path)[1].lower()
     if ext in FORBIDDEN_EXT:
         return "binary survey-data format"
+    if ext in DOC_EXT:
+        return "manuscript or submission document"
+    base = os.path.basename(path).lower()
+    if any(h in base for h in DOC_NAME_HINTS):
+        return "filename looks like a manuscript or submission document"
     size = os.path.getsize(path)
     if size > MAX_BYTES:
         return f"{size / 1048576:.1f} MiB (> 10 MiB)"
@@ -87,7 +102,7 @@ def main(argv):
     if not bad:
         print("check_no_microdata: OK (%d file(s) scanned)" % len(files))
         return 0
-    print("\nCOMMIT BLOCKED — these files look like respondent-level data:\n")
+    print("\nCOMMIT BLOCKED — these files look like respondent-level data or submission documents:\n")
     for f, r in bad:
         print(f"  {f}\n      reason: {r}")
     print(
