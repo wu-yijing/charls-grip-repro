@@ -29,10 +29,32 @@ jobs:
         run: |
           Rscript -e 'cat(R.version.string, "\n"); print(getOption("repos"))'
 
-      - name: Install R packages
+      # The package list is derived from the scripts rather than written out
+      # here. A hand-maintained list silently drifts: the first CI run after the
+      # R install was fixed failed on 07_figure2.R because ggplot2, scales and
+      # patchwork were never listed, although they load fine on any machine that
+      # has used R before.
+      - name: Install the packages the scripts actually load
         run: |
-          Rscript -e 'install.packages(c("haven","dplyr","nnet","sandwich","pROC","mice","survey"), Ncpus = 2)'
-          Rscript -e 'for (p in c("haven","dplyr","nnet","sandwich","pROC","mice","survey")) cat(sprintf("%-10s %s\n", p, as.character(packageVersion(p))))'
+          cat > /tmp/deps.R <<'RS'
+          files <- list.files("code", pattern = "[.]R$", full.names = TRUE)
+          pat <- "(library|require)\\([\"']?[A-Za-z][A-Za-z0-9._]*"
+          used <- sort(unique(unlist(lapply(files, function(f) {
+            txt <- readLines(f, warn = FALSE, encoding = "UTF-8")
+            sub("^.*\\([\"']?", "", unlist(regmatches(txt, gregexpr(pat, txt))))
+          }))))
+          cat("declared:", paste(used, collapse = ", "), "\n")
+          want <- setdiff(used, rownames(installed.packages()))
+          cat("to add  :", paste(want, collapse = ", "), "\n")
+          if (length(want)) install.packages(want, Ncpus = 2)
+          missing <- setdiff(used, rownames(installed.packages()))
+          if (length(missing)) {
+            cat("STILL MISSING:", paste(missing, collapse = ", "), "\n")
+            quit(status = 1)
+          }
+          for (p in used) cat(sprintf("  %-10s %s\n", p, as.character(packageVersion(p))))
+          RS
+          Rscript /tmp/deps.R
 
       - name: Install python-docx
         run: pip install python-docx

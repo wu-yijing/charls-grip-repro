@@ -24,8 +24,10 @@ bash run_all.sh
 `run_all.sh` prints one `PASS`/`FAIL` line per step, writes `logs_summary.txt`, and exits 1 if any
 step failed (so CI fails loudly). Every step writes its own log to `logs/`.
 
-Requirements: R ≥ 4.2 (`haven`, `dplyr`, `nnet`, `sandwich`, `pROC`, `mice`, `survey`) and
-Python 3 with `python-docx` for the supplementary-table builder.
+Requirements: R ≥ 4.2 with `haven`, `dplyr`, `nnet`, `sandwich`, `pROC`, `mice`, `survey`,
+`ggplot2`, `scales`, `patchwork` (the CI job installs whatever the scripts actually `library()`,
+so this line is a fallback for manual runs), and Python 3 with `python-docx` for the
+supplementary-table builder.
 
 ---
 
