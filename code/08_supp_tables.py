@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Build Supplementary Tables S1-S3 docx from the analysis CSVs."""
-import csv, json
+import csv, json, sys
 
 OUT = "out/Supplementary_Tables_S1-S3.docx"
 
@@ -161,15 +161,19 @@ With the AWGS 2025 cut-offs for the four-group pattern the results were unchange
 open("_supp.md", "w", encoding="utf8").write(md)
 print("markdown written,", len(md), "chars")
 
-# write the assembled tables to a plain .docx (no external editor needed)
+# write the assembled tables to a plain .docx (no external editor needed).
+# The .docx is an output this pipeline promises -- run_all.sh asserts that it
+# exists -- so a missing dependency must stop the run instead of printing a
+# note and exiting 0, which would leave a stale file looking like a success.
 try:
     import docx
-    d = docx.Document()
-    for block in md.split("\n\n"):
-        block = block.strip()
-        if block:
-            d.add_paragraph(block)
-    d.save(OUT)
-    print("docx written:", OUT)
-except Exception as e:
-    print("docx step skipped:", e)
+except ImportError:
+    sys.exit("08_supp_tables.py: python-docx is required (pip install python-docx)")
+
+d = docx.Document()
+for block in md.split("\n\n"):
+    block = block.strip()
+    if block:
+        d.add_paragraph(block)
+d.save(OUT)
+print("docx written:", OUT)
