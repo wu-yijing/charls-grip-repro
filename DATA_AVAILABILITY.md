@@ -7,7 +7,7 @@
 > individual-level files therefore cannot be deposited or shared by the authors. The analysis code
 > (40 scripts), a codebook, the fitted model objects and a deterministic script that generates a
 > synthetic cohort of identical structure and missingness (seed 20261024) are openly available at
-> Zenodo (DOI 10.5281/zenodo.23677282, version 1.0.1); the analysis specification is provided as
+> Zenodo (DOI 10.5281/zenodo.23677282, version 1.0.2); the analysis specification is provided as
 > Supplementary Methods. Estimates underlying every table and figure are reported in the manuscript
 > and supplementary tables.
 
