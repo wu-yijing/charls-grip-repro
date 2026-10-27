@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code or the synthetic data, please cite the article and this repository."
-title: "Reproducibility package for: Reproducibility of low grip strength classification and the incremental value of a prior reading beyond the current value (CHARLS 2011-2018)"
+title: "Reproducibility package for 'Two-year agreement of low grip strength classification and the prognostic value of an earlier reading beyond the current one: a cohort study of 6,052 Chinese adults'"
 type: software
 authors:
   - family-names: Wu
@@ -15,6 +15,7 @@ authors:
   - family-names: Jin
     given-names: Guoxi
 license: MIT
+version: 1.0.1
 doi: "10.5281/zenodo.23677282"
 repository-code: "https://github.com/wu-yijing/charls-grip-repro"
 keywords:

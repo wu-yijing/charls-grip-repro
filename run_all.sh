@@ -35,6 +35,11 @@ ORDER=(
   22_null_sim.R
   23_null_sensitivity.R
   24_n5_mi_recheck.R
+  72_calibration.R
+  73_bounding_mi.R
+  74_frailty_mi.R
+  75_kappa_cluster.R
+  99_export_synthetic_csv.R
 )
 
 pass=0; fail=0; failed=""

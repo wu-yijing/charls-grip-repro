@@ -127,6 +127,10 @@ h13 <- data.frame(ID = id12, as.data.frame(A13), cesd_items, stringsAsFactors = 
 names(h13)[2:7] <- paste0("db0", 10:15)
 names(h13)[8:17] <- sprintf("dc%03d", 9:18)
 if (any(miss_cesd)) for (k in 8:17) h13[[k]][miss_cesd] <- NA
+## self-rated health (da002; 1 very good to 5 very poor), carried because the frailty index in
+## 74_frailty_mi.R counts it. Correlated with the ADL count, as in the real file.
+h13$da002 <- as.integer(cut(rowSums(A13, na.rm = TRUE) + rnorm(N, 0, 1.2),
+                            breaks = c(-Inf, 0, 1.5, 3, 5, Inf), labels = FALSE))
 w(h13, "2013", "Health_Status_and_Functioning")
 
 h18 <- data.frame(ID = id12, as.data.frame(A18), as.data.frame(I18), stringsAsFactors = FALSE)

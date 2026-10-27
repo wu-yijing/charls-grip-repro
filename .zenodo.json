@@ -1,0 +1,47 @@
+{
+  "title": "Reproducibility package for 'Two-year agreement of low grip strength classification and the prognostic value of an earlier reading beyond the current one: a cohort study of 6,052 Chinese adults'",
+  "description": "<p>Code, specification and simulated data for a cohort study of two-year agreement in low grip strength classification and the incremental prognostic value of an earlier reading.</p><p><strong>Contents</strong></p><ul><li>32 scripts (31 R, 1 Python) and a shared helper library (<code>code/</code>): cohort construction, agreement and measurement-error analyses, the weighted multiple-imputation models, the incremental-value models, the bounding analysis, the frailty index, calibration, the figure and table builders</li><li>Analysis specification (<code>_supp.md</code>), written after the primary analysis was run and archived with it</li><li>A deterministic synthetic-data generator. The simulated cohort itself is not distributed: a one-row-per-person file is structurally indistinguishable from the micro data the CHARLS terms prohibit redistributing, so the package ships the generator and the guard that enforces this</li><li>Fitted model objects (<code>model/fit_store.rds</code>), so Table 3 can be recomputed without respondent data</li><li>SHA-256 checksums of the CHARLS inputs used (<code>manifest/</code>)</li></ul><p><strong>No CHARLS data are included or redistributed.</strong> The CHARLS terms of agreement prohibit publishing original micro data in any form; registered users can obtain the release identified in <code>manifest/inputs.sha256</code> from the CHARLS website. The synthetic cohort has the same structure, variable names and missingness but is simulated: it does not reproduce the published estimates, and exists to show that the code runs.</p><p><strong>Changes in this version (1.0.1)</strong></p><ul><li>Title updated to the title of the revised manuscript.</li><li>Four scripts added for the analyses introduced in revision: <code>73_bounding_mi.R</code> (bounding of the loss to follow-up), <code>74_frailty_mi.R</code> (frailty index excluding grip), <code>72_calibration.R</code> (cross-validated calibration) and <code>75_kappa_cluster.R</code> (kappa interval by community bootstrap).</li><li>Version 1.0.0 advertised a synthetic CSV that it did not include. The claim has been corrected rather than the file added: the repository guard rejects row-level files, synthetic or not.</li><li>The synthetic generator now emits <code>da002</code>, which the frailty index counts.</li><li>Kappa intervals in Table 1 resample communities rather than individuals; the design effect of that change is 1.40.</li></ul>",
+  "creators": [
+    {
+      "name": "Wu, Yijing",
+      "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Anhui Medical University, Hefei, China",
+      "orcid": ""
+    },
+    {
+      "name": "Chen, Mingwei",
+      "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Anhui Medical University, Hefei, China"
+    },
+    {
+      "name": "Wu, Qiuyan",
+      "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Bengbu Medical University, Bengbu, China"
+    },
+    {
+      "name": "Zhao, Jingyi",
+      "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Bengbu Medical University, Bengbu, China"
+    },
+    {
+      "name": "Jin, Guoxi",
+      "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Bengbu Medical University, Bengbu, China"
+    }
+  ],
+  "keywords": [
+    "grip strength",
+    "agreement",
+    "sarcopenia",
+    "CHARLS",
+    "measurement error",
+    "incremental value"
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/wu-yijing/charls-grip-repro/tree/v1.0.1",
+      "scheme": "url"
+    }
+  ],
+  "notes": "The synthetic cohort is simulated. It does not reproduce the published estimates; those are reported in the manuscript and supplementary tables."
+}

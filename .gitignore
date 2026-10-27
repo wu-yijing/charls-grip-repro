@@ -52,3 +52,6 @@ Thumbs.db
 _supp.md
 logs_summary.txt
 data/
+
+# synthetic cohort CSV: deliberately not shipped (see synthetic/README.md)
+synthetic/*.csv

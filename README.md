@@ -2,11 +2,11 @@
 
 [![pipeline](https://github.com/wu-yijing/charls-grip-repro/actions/workflows/repro.yml/badge.svg)](https://github.com/wu-yijing/charls-grip-repro/actions/workflows/repro.yml)
 
-**Reproducibility of low grip strength classification and the incremental value of a prior reading beyond the current value: a five-year cohort study of 6,052 Chinese adults**
+**Two-year agreement of low grip strength classification and the prognostic value of an earlier reading beyond the current one: a cohort study of 6,052 Chinese adults**
 
-This repository contains the 26 analysis scripts (plus a synthetic-data generator and a shared
-helper library), the analysis specification, a synthetic dataset of identical structure, and the
-fitted model objects for the manuscript. It contains **no CHARLS
+This repository contains the 31 R scripts and the one Python script that build the exhibits, a
+shared helper library, the analysis specification, a deterministic generator of a synthetic
+dataset of identical structure, and the fitted model objects for the manuscript. It contains **no CHARLS
 data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for what is shared instead.
 
 ---
@@ -17,7 +17,7 @@ data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for wha
 # 1. generate a synthetic raw file set (11 .dta files, ~30 MB; nothing real)
 Rscript code/00_make_synthetic_raw.R
 
-# 2. run all 27 steps in dependency order (26 analysis scripts + the generator)
+# 2. run all 32 steps in dependency order (31 R scripts + the table builder)
 bash run_all.sh
 ```
 
@@ -30,6 +30,12 @@ so this line is a fallback for manual runs), and Python 3 with `python-docx` for
 supplementary-table builder.
 
 ---
+
+## What each script produces
+
+`manifest/outputs.csv` maps every exhibit to the script that produces it. The `coverage` column is
+deliberate: six exhibits (S9-S13, S15) come from scripts written for the revision that are not part
+of this package, and the file says so rather than implying full coverage.
 
 ## What the synthetic data are, and are not
 
