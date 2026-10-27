@@ -5,11 +5,11 @@
 > CHARLS data are available to registered users from the China Health and Retirement Longitudinal
 > Study (http://charls.pku.edu.cn) under a data-use agreement that prohibits redistribution; the
 > individual-level files therefore cannot be deposited or shared by the authors. The analysis code
-> (32 scripts), a codebook, the fitted model objects, a deterministic script that generates a
-> synthetic cohort of identical structure and missingness (seed 20261024), and that cohort as a CSV
-> are openly available at Zenodo (DOI 10.5281/zenodo.23677282, version 1.0.1); the analysis
-> specification is provided as Supplementary Methods. Estimates underlying every table and figure
-> are reported in the manuscript and supplementary tables.
+> (32 scripts), a codebook, the fitted model objects and a deterministic script that generates a
+> synthetic cohort of identical structure and missingness (seed 20261024) are openly available at
+> Zenodo (DOI 10.5281/zenodo.23677282, version 1.0.1); the analysis specification is provided as
+> Supplementary Methods. Estimates underlying every table and figure are reported in the manuscript
+> and supplementary tables.
 
 The quoted passage is the statement as it appears in the manuscript. The code is also browsable at
 <https://github.com/wu-yijing/charls-grip-repro>, but the Zenodo record — not the repository — is the
@@ -44,6 +44,17 @@ author"; requests are directed to CHARLS.
 | Fitted model objects (coefficients, variance) | `model/fit_store.rds` | aggregate parameters, ≈24 KB per cut-off |
 | Input checksums (for version matching) | `manifest/inputs.sha256` | hashes only |
 | Published estimates | manuscript and supplementary tables | aggregate |
+
+### Why the simulated cohort is not distributed as a file
+
+The generator ships; the CSV it produces does not. Every row is simulated, but a one-row-per-person
+file carrying a respondent ID, a community identifier, a province and a sampling weight is
+structurally indistinguishable from the micro data the CHARLS terms prohibit redistributing: a reader
+cannot tell from the file which it is, and a journal cannot police the difference. The repository
+enforces this at commit time with `tools/check_no_microdata.py`, which rejects such a file whether or
+not it is synthetic. Version 1.0.0 of this package said the archival snapshot included
+`jamda_synthetic.csv`. It did not. Because the file can be regenerated in one command, the wrong
+statement has been removed rather than made true by shipping the file.
 
 ## What a reader can verify
 
