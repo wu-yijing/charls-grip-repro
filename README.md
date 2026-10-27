@@ -4,7 +4,7 @@
 
 **Two-year agreement of low grip strength classification and the prognostic value of an earlier reading beyond the current one: a cohort study of 6,052 Chinese adults**
 
-This repository contains the 31 R scripts and the one Python script that build the exhibits, a
+This repository contains the 39 R scripts and the one Python script that build the exhibits, a
 shared helper library, the analysis specification, a deterministic generator of a synthetic
 dataset of identical structure, and the fitted model objects for the manuscript. It contains **no CHARLS
 data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for what is shared instead.
@@ -17,7 +17,7 @@ data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for wha
 # 1. generate a synthetic raw file set (11 .dta files, ~30 MB; nothing real)
 Rscript code/00_make_synthetic_raw.R
 
-# 2. run all 32 steps in dependency order (31 R scripts + the table builder)
+# 2. run all 40 steps in dependency order (39 R scripts + the table builder)
 bash run_all.sh
 ```
 
@@ -33,9 +33,11 @@ supplementary-table builder.
 
 ## What each script produces
 
-`manifest/outputs.csv` maps every exhibit to the script that produces it. The `coverage` column is
-deliberate: six exhibits (S9-S13, S15) come from scripts written for the revision that are not part
-of this package, and the file says so rather than implying full coverage.
+`manifest/outputs.csv` maps every exhibit to the script that produces it, and the `coverage` column
+records whether the package can regenerate it. Coverage is complete from version 1.0.2: the six
+exhibits that earlier versions disclosed as not reproducible (S9-S13, S15) are now built by
+`30_rev9_incremental.R`, `32_rev9_boot.R`, `40_share_vs_charls.R`, `44_extra.R`, `48_lca.R`,
+`50_rev11_review.R`, `60_rev14_spline.R` and `70_rev15_decomp.R`.
 
 ## What the synthetic data are, and are not
 

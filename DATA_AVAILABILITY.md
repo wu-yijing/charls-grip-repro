@@ -5,7 +5,7 @@
 > CHARLS data are available to registered users from the China Health and Retirement Longitudinal
 > Study (http://charls.pku.edu.cn) under a data-use agreement that prohibits redistribution; the
 > individual-level files therefore cannot be deposited or shared by the authors. The analysis code
-> (32 scripts), a codebook, the fitted model objects and a deterministic script that generates a
+> (40 scripts), a codebook, the fitted model objects and a deterministic script that generates a
 > synthetic cohort of identical structure and missingness (seed 20261024) are openly available at
 > Zenodo (DOI 10.5281/zenodo.23677282, version 1.0.1); the analysis specification is provided as
 > Supplementary Methods. Estimates underlying every table and figure are reported in the manuscript
@@ -38,7 +38,7 @@ author"; requests are directed to CHARLS.
 
 | Item | Path | Why it is allowed |
 |---|---|---|
-| Analysis code: 32 scripts, generator, helper library | `code/` | no respondent values |
+| Analysis code: 40 scripts, generator, helper library | `code/` | no respondent values |
 | Codebook and variable construction | `codebook/` | describes variables, not records |
 | Synthetic dataset, 17,708 simulated respondents | generator only: `code/00_make_synthetic_raw.R` (the generated row-level file is deliberately not distributed) | no real person behind any row, but a per-person file is structurally indistinguishable from micro data |
 | Fitted model objects (coefficients, variance) | `model/fit_store.rds` | aggregate parameters, ≈24 KB per cut-off |

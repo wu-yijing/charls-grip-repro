@@ -35,6 +35,14 @@ ORDER=(
   22_null_sim.R
   23_null_sensitivity.R
   24_n5_mi_recheck.R
+  30_rev9_incremental.R
+  32_rev9_boot.R
+  40_share_vs_charls.R
+  44_extra.R
+  48_lca.R
+  50_rev11_review.R
+  60_rev14_spline.R
+  70_rev15_decomp.R
   72_calibration.R
   73_bounding_mi.R
   74_frailty_mi.R
