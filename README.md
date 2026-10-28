@@ -4,8 +4,8 @@
 
 **Two-year agreement of low grip strength classification and the prognostic value of an earlier reading beyond the current one: a cohort study of 6,052 Chinese adults**
 
-This repository contains the 39 R scripts and the one Python script that build the exhibits, a
-shared helper library, the analysis specification, a deterministic generator of a synthetic
+This repository contains the 49 R scripts and two Python utilities that build the exhibits, a
+shared helper library, two further R scripts that need the CHARLS release (`code/charls_only/`), the analysis specification, a deterministic generator of a synthetic
 dataset of identical structure, and the fitted model objects for the manuscript. It contains **no CHARLS
 data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for what is shared instead.
 
@@ -17,7 +17,7 @@ data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for wha
 # 1. generate a synthetic raw file set (11 .dta files, ~30 MB; nothing real)
 Rscript code/00_make_synthetic_raw.R
 
-# 2. run all 40 steps in dependency order (39 R scripts + the table builder)
+# 2. run all 51 steps in dependency order (49 R scripts + 2 Python utilities)
 bash run_all.sh
 ```
 
@@ -34,10 +34,11 @@ supplementary-table builder.
 ## What each script produces
 
 `manifest/outputs.csv` maps every exhibit to the script that produces it, and the `coverage` column
-records whether the package can regenerate it. Coverage is complete from version 1.0.2: the six
-exhibits that earlier versions disclosed as not reproducible (S9-S13, S15) are now built by
-`30_rev9_incremental.R`, `32_rev9_boot.R`, `40_share_vs_charls.R`, `44_extra.R`, `48_lca.R`,
-`50_rev11_review.R`, `60_rev14_spline.R` and `70_rev15_decomp.R`.
+records whether the package can regenerate it. From version 1.0.3 every exhibit in the manuscript
+and in Tables S1-S23 has a script in this package. Two of them need the CHARLS release rather than
+the synthetic cohort and live in `code/charls_only/` — `80_rev23_review.R`, which builds the
+dominant-hand analysis and the age specifications (Table S22 Panels A-C), and `_probe_recon.R`,
+which builds the reconciliation in Table S15. Everything else runs on the synthetic cohort.
 
 ## What the synthetic data are, and are not
 
@@ -85,6 +86,15 @@ Synthetic cohort from the shipped seed: n = 5,180 (4,630 never low / 209 remitte
 | `22_null_sim.R` | measurement-error-only simulation | `jamda_full.rds` | console |
 | `23_null_sensitivity.R` | sensitivity of the noise share | `jamda_full.rds` | console |
 | `24_n5_mi_recheck.R` | ordinal test and DCA in imputed data | `jamda_full.rds` | `out/24_n5.txt` |
+| `31_rev9_errorsim.R` | three specifications of the error term in the no-change benchmark (S9) | `jamda_full.rds` | console |
+| `51_rev11_extra.R` | ICC(2,1) for the never-low group in both intervals (S7 Panel B) | `jamda_full.rds` | `out/51_rev11_extra.txt` |
+| `60_s21_landmark.R`, `61_s21_boot.R`, `62_s21_adjust.R`, `63_s21_panelC.R` | incremental value without the 2013 landmark (S21) | `jamda_full.rds` | console |
+| `80b_m3_adl_missing.R` | missing 2013 ADL block counted as ADL-free (S23) | `jamda_full.rds` | console |
+| `80c_m3_desc.R` | who the excluded ADL block was (Section 4.5) | `jamda_full.rds` | console |
+| `81_figure2_rev23.R` | Figure 2, revised (600 dpi PNG + vector PDF) | — | `figures/FIG2_rev23.*` |
+| `82_rev23_jiang_reconcile.R` | reconciliation with reference 17 (Section 4.2) | `jamda_full.rds` | console |
+| `share_align.py` | percentile of the cut-off in the Chinese and SHARE distributions (S10 Panel E) | `out/jamda_full.csv` | console |
+| `charls_only/80_rev23_review.R`, `charls_only/_probe_recon.R` | need the CHARLS release; not in `run_all.sh` | CHARLS `.dta` | console |
 
 `manifest/outputs.csv` maps every manuscript exhibit to the script that produces it.
 

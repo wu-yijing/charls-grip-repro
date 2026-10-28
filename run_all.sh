@@ -36,17 +36,28 @@ ORDER=(
   23_null_sensitivity.R
   24_n5_mi_recheck.R
   30_rev9_incremental.R
+  31_rev9_errorsim.R
   32_rev9_boot.R
   40_share_vs_charls.R
   44_extra.R
   48_lca.R
   50_rev11_review.R
+  51_rev11_extra.R
   60_rev14_spline.R
+  60_s21_landmark.R
+  61_s21_boot.R
+  62_s21_adjust.R
+  63_s21_panelC.R
   70_rev15_decomp.R
   72_calibration.R
   73_bounding_mi.R
   74_frailty_mi.R
   75_kappa_cluster.R
+  80b_m3_adl_missing.R
+  80c_m3_desc.R
+  81_figure2_rev23.R
+  82_rev23_jiang_reconcile.R
+  share_align.py
   99_export_synthetic_csv.R
 )
 

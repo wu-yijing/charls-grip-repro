@@ -24,3 +24,6 @@ Table S17,baseline characteristics by pattern,01_build.R + 15_table1_cesd.R,out/
 Table S18,bounding analysis for missing outcomes,73_bounding_mi.R,out/73_bounding_mi.txt,included
 Table S19,frailty index excluding grip,74_frailty_mi.R,out/74_frailty_mi.txt,included
 Table S20,calibration of models A and B2,72_calibration.R,out/72_calibration.txt,included
+Table S21,incremental value without the 2013 landmark restriction,60_s21_landmark.R + 61_s21_boot.R + 62_s21_adjust.R + 63_s21_panelC.R,console,included
+Table S22,"definition of the reading (dominant hand) and functional form of age",80_rev23_review.R + 31_rev9_errorsim.R + 23_null_sensitivity.R,console,partial
+Table S23,handling of the 2013 ADL block that was entirely missing,80b_m3_adl_missing.R,console,included
