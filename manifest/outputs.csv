@@ -1,6 +1,6 @@
 exhibit,description,script,output,coverage
-Figure 1,cohort selection flow,20a_cohort_facts.R,out/20a_cohort_facts.txt,included
-Figure 2,agreement panels A-B,07b_figure2.R,figures/Figure_2.png,included
+Figure 1,cohort selection flow,83_figure1_rev28.py,figures/Figure_1.pdf,included
+Figure 2,agreement panels A-B,84_figure2_rev28.R,figures/Figure_2.pdf,included
 Table 1,agreement indices; kappa interval by community bootstrap,05_kappa.R + 21_enhanced_A.R + 75_kappa_cluster.R,out/75_kappa_cluster.txt,included
 Table 2,five-year outcomes and adjusted RRRs,06b_weighted_mi_main.R,out/S2_weighted_MI_rrr.csv,included
 Table 3,incremental value of the earlier reading,04_incremental.R,out/S3_incremental.csv,included

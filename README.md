@@ -4,8 +4,8 @@
 
 **Two-year agreement of low grip strength classification and the prognostic value of an earlier reading beyond the current one: a cohort study of 6,052 Chinese adults**
 
-This repository contains the 49 R scripts and two Python utilities that build the exhibits, a
-shared helper library, two further R scripts that need the CHARLS release (`code/charls_only/`), the analysis specification, a deterministic generator of a synthetic
+This repository contains 50 R scripts and three Python utilities, a
+shared R helper library (`code/lib.R`), two further R scripts that need the CHARLS release (`code/charls_only/`), the analysis specification, a deterministic generator of a synthetic
 dataset of identical structure, and the fitted model objects for the manuscript. It contains **no CHARLS
 data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for what is shared instead.
 
@@ -93,10 +93,18 @@ Synthetic cohort from the shipped seed: n = 5,180 (4,630 never low / 209 remitte
 | `80c_m3_desc.R` | who the excluded ADL block was (Section 4.5) | `jamda_full.rds` | console |
 | `81_figure2_rev23.R` | Figure 2, revised (600 dpi PNG + vector PDF) | — | `figures/FIG2_rev23.*` |
 | `82_rev23_jiang_reconcile.R` | reconciliation with reference 17 (Section 4.2) | `jamda_full.rds` | console |
+| `83_figure1_rev28.py` | Figure 1 (cohort selection flow) exactly as submitted; box geometry and every count unchanged, typography rebuilt | — | `figures/Figure_1.pdf`, `.png` |
+| `84_figure2_rev28.R` | Figure 2 exactly as submitted; values unchanged, layout rebuilt so no data label sits on a grid line | — | `figures/Figure_2.pdf`, `.png` |
 | `share_align.py` | percentile of the cut-off in the Chinese and SHARE distributions (S10 Panel E) | `out/jamda_full.csv` | console |
 | `charls_only/80_rev23_review.R`, `charls_only/_probe_recon.R` | need the CHARLS release; not in `run_all.sh` | CHARLS `.dta` | console |
 
 `manifest/outputs.csv` maps every manuscript exhibit to the script that produces it.
+
+`83_figure1_rev28.py` and `84_figure2_rev28.R` reproduce the two submitted figures exactly, but they
+are not steps in `run_all.sh`: both are layout revisions of values the pipeline already computes
+(Figure 1's counts come from `20a_cohort_facts.R`, Figure 2's from the weighted models), they need
+`matplotlib` and R `cairo` respectively, and running them overwrites the pipeline's `figures/` output
+with the submitted layout. Run them individually from the repository root.
 
 ---
 
