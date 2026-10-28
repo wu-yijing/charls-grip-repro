@@ -2,14 +2,16 @@
 
 ## Statement in the manuscript
 
-> CHARLS data are available to registered users from the China Health and Retirement Longitudinal
-> Study (http://charls.pku.edu.cn) under a data-use agreement that prohibits redistribution; the
-> individual-level files therefore cannot be deposited or shared by the authors. The analysis code
-> (40 scripts), a codebook, the fitted model objects and a deterministic script that generates a
-> synthetic cohort of identical structure and missingness (seed 20261024) are openly available at
-> Zenodo (DOI 10.5281/zenodo.23677282, version 1.0.2); the analysis specification is provided as
-> Supplementary Methods. Estimates underlying every table and figure are reported in the manuscript
-> and supplementary tables.
+> CHARLS data are available to registered users from the China Health and Retirement
+> Longitudinal Study (http://charls.pku.edu.cn) under a data-use agreement that prohibits
+> redistribution; the individual-level files therefore cannot be deposited or shared by the
+> authors. The analysis code, a codebook, the fitted model objects behind the standardised
+> risks and a deterministic script that generates a synthetic cohort of identical structure
+> and missingness (seed 20261024) are openly available at Zenodo (DOI
+> 10.5281/zenodo.23732082, version 1.0.4; the concept DOI 10.5281/zenodo.23677282 resolves
+> to the latest version); the analysis specification is provided as Supplementary Methods.
+> Estimates underlying every table and figure are reported in the manuscript and
+> supplementary tables.
 
 The quoted passage is the statement as it appears in the manuscript. The code is also browsable at
 <https://github.com/wu-yijing/charls-grip-repro>, but the Zenodo record — not the repository — is the
