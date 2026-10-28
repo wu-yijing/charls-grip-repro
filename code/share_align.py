@@ -5,7 +5,7 @@
 """CHARLS vs SHARE: where does the AWGS 2019 cut-off sit in the grip distribution?"""
 import csv, math
 
-CSV = r"E:\workbuddy\JAMDA\analysis\out\jamda_full.csv"
+CSV = "out/jamda_full.csv"
 CUT = {"men": 28.0, "women": 18.0}
 BANDS = [(50,54),(55,59),(60,64),(65,69),(70,74),(75,79),(80,84),(85,200)]
 
