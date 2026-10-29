@@ -4,7 +4,7 @@
 
 **Two-year agreement of low grip strength classification and the prognostic value of an earlier reading beyond the current one: a cohort study of 6,052 Chinese adults**
 
-This repository contains 50 R scripts and three Python utilities, a
+This repository contains 55 R scripts and three Python utilities, a
 shared R helper library (`code/lib.R`), two further R scripts that need the CHARLS release (`code/charls_only/`), the analysis specification, a deterministic generator of a synthetic
 dataset of identical structure, and the fitted model objects for the manuscript. It contains **no CHARLS
 data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for what is shared instead.
@@ -17,7 +17,7 @@ data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for wha
 # 1. generate a synthetic raw file set (11 .dta files, ~30 MB; nothing real)
 Rscript code/00_make_synthetic_raw.R
 
-# 2. run all 51 steps in dependency order (49 R scripts + 2 Python utilities)
+# 2. run all 56 steps in dependency order (54 R scripts + 2 Python utilities)
 bash run_all.sh
 ```
 
