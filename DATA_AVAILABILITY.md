@@ -7,9 +7,9 @@
 > redistribution; the individual-level files therefore cannot be deposited or shared by the
 > authors. The analysis code, a codebook, the fitted model objects behind the standardised
 > risks and a deterministic script that generates a synthetic cohort of identical structure
-> and missingness (seed 20261024) are openly available at Zenodo (DOI
-> 10.5281/zenodo.23750085, version 1.0.5; the concept DOI 10.5281/zenodo.23677282 resolves
-> to the latest version); the analysis specification is provided as Supplementary Methods.
+> and missingness (seed 20261024) are openly available at Zenodo (concept DOI 10.5281/zenodo.23677282, which resolves to the
+> latest version; the version used here is 1.0.7); the analysis specification is provided as
+> Supplementary Methods.
 > Estimates underlying every table and figure are reported in the manuscript and
 > supplementary tables.
 
