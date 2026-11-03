@@ -149,3 +149,18 @@ See `CITATION.cff`. Code is MIT-licensed; the synthetic dataset is released unde
 ## Contact
 
 Yijing Wu — Department of Endocrinology, The First Affiliated Hospital of Anhui Medical University.
+
+---
+
+## Supplementary Table S28 (v1.0.6)
+
+`code/charls_only/97_s28_dominant_2025.R` generates Table S28: the AWGS 2025 age-specific
+cut-offs applied to the **dominant-hand** reading (better of two trials in the recorded
+dominant hand, `qc002`) instead of the maximum of four. It reads the CHARLS release through
+`_x/` and the analytic file `out/jamda_full.rds`, and writes `out/S28_dominant_2025.csv`.
+
+Reported in Section 4.5: at ages 50-64 the dominant-hand rule classifies 2.5 percentage
+points more participants as low (ratio 1.19, 95% CI 1.9-3.1) and two-year reversion is
+2.3 points lower (ratio 0.96, 95% CI -4.8 to 0.3). Because the maximum-of-four value is
+never below the dominant-hand value, the former classification is a subset of the latter:
+no participant moves in the opposite direction.
