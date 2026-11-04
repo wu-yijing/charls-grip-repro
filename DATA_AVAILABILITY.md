@@ -8,7 +8,7 @@
 > authors. The analysis code, a codebook, the fitted model objects behind the standardised
 > risks and a deterministic script that generates a synthetic cohort of identical structure
 > and missingness (seed 20261024) are openly available at Zenodo (concept DOI 10.5281/zenodo.23677282, which resolves to the
-> latest version; the version used here is 1.0.7); the analysis specification is provided as
+> latest version; the version used here is 1.0.8); the analysis specification is provided as
 > Supplementary Methods.
 > Estimates underlying every table and figure are reported in the manuscript and
 > supplementary tables.

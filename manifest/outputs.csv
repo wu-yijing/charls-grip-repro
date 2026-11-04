@@ -31,3 +31,5 @@ Table S24,decision arithmetic for repeating a low reading,hand-computed from Tab
 Table S25,no-change benchmark with the error estimated by distance to the cut-off,91b_hetero_stratified.R,console,included
 Table S26,two-state latent Markov model of the three readings,94_rev29_hmm2.R,console,included
 Table S27,agreement and two-year reversion by age stratum,95_rev31_age.R + 96_stratum_bench.R,console,included
+"Table S37","Full AWGS 2019 definition in all 6,052 participants",code/charls_only/98_full_awgs_icc.R,manifest/s37_s38/JFA_full_awgs.csv,included
+"Table S38","Short-interval ICC 0.80-0.99 sensitivity",code/charls_only/98_full_awgs_icc.R,manifest/s37_s38/JFA_icc_sensitivity.csv,included

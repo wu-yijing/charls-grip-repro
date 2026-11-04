@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code or the synthetic data, please cite the article and this repository."
-title: "Reproducibility package for 'A single low grip reading is an unstable basis for a sarcopenia label: two-year reversion in 6,052 Chinese adults and the AWGS 2025 extension'"
+title: "Reproducibility package for 'Two-year agreement of a low handgrip reading in 6,052 Chinese adults: implications for repeat testing before a possible-sarcopenia label'"
 type: software
 authors:
   - family-names: Wu
@@ -15,7 +15,7 @@ authors:
   - family-names: Jin
     given-names: Guoxi
 license: MIT
-version: 1.0.7
+version: 1.0.8
 doi: "10.5281/zenodo.23677282"
 repository-code: "https://github.com/wu-yijing/charls-grip-repro"
 keywords:
