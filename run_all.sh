@@ -62,6 +62,7 @@ ORDER=(
   94_rev29_hmm2.R
   95_rev31_age.R
   96_stratum_bench.R
+  99_stratum_bench_2025.R
   share_align.py
   99_export_synthetic_csv.R
 )

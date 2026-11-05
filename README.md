@@ -17,7 +17,7 @@ data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for wha
 # 1. generate a synthetic raw file set (11 .dta files, ~30 MB; nothing real)
 Rscript code/00_make_synthetic_raw.R
 
-# 2. run all 56 steps in dependency order (54 R scripts + 2 Python utilities)
+# 2. run all 57 steps in dependency order (55 R scripts + 2 Python utilities)
 bash run_all.sh
 ```
 
@@ -113,8 +113,9 @@ matches of the simulated 2013 value: 55.6%, 59.5% and 58.6%), and the two figure
 read the aggregates in `manifest/fig_inputs/`. Those four CSVs are the exact inputs behind the
 submitted figures and contain no respondent-level data.
 
-Version 1.0.10 adds `code/charls_only/99_stratum_bench_2025.R`, which carries the no-change benchmark
-under the **2025** age-specific cut-offs. `96_stratum_bench.R` runs that benchmark at the AWGS 2019
+Version 1.0.10 added `code/99_stratum_bench_2025.R`, which carries the no-change benchmark under the
+**2025** age-specific cut-offs; from 1.0.11 it is a step in `run_all.sh` (it reads only
+`out/jamda_full.rds`, so the pipeline exercises it on the synthetic cohort). `96_stratum_bench.R` runs that benchmark at the AWGS 2019
 cut-offs only; the paper's policy claim is about the 2025 thresholds in the 50-64 band, where the
 benchmark expects 57.3% against 63.7% observed. See the section at the end of this file.
 
@@ -181,8 +182,8 @@ no participant moves in the opposite direction.
 
 ## Supplementary Table S27, the 2025 benchmark (v1.0.10)
 
-`code/charls_only/99_stratum_bench_2025.R` runs the no-change model of `96_stratum_bench.R` with the
-2025 age-specific cut-offs. The generative model, the calibration and the error term are unchanged:
+`code/99_stratum_bench_2025.R` runs the no-change model of `96_stratum_bench.R` with the 2025
+age-specific cut-offs, as step 55 of `run_all.sh` immediately after it. The generative model, the calibration and the error term are unchanged:
 a true 2011 value is drawn from the observed 2011 distribution, a 2013 reading follows with
 within-person error estimated in participants who stayed above the cut-off, and the simulated
 reading is rescaled to the observed marginal. Only the cut-offs and the classification change, so
@@ -193,4 +194,5 @@ thresholds, observed reversion is 63.7% (58.3-69.0) and the benchmark expects **
 simulation interval 42.9-71.8). The classification itself is built by `code/01_build.R`
 (`low11_25` / `low13_25`: <34 and <20 kg at 50-64 years, <28 and <18 kg above it), so the whole
 chain runs from `out/jamda_full.rds` with no CHARLS data read here. The output is archived as
-`manifest/s27/JFA_stratum_bench_2025.csv`, which reproduces byte for byte.
+`manifest/s27/JFA_stratum_bench_2025.csv`, which reproduces byte for byte. On the synthetic cohort the step prints a note that its numbers are a structural
+smoke test; the published values are checked only when the cohort has n = 6,052.

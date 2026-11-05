@@ -2,18 +2,20 @@
 
 ## Statement in the manuscript
 
-> CHARLS data are available to registered users from the China Health and Retirement
-> Longitudinal Study (http://charls.pku.edu.cn) under a data-use agreement that prohibits
-> redistribution; the individual-level files therefore cannot be deposited or shared by the
-> authors. The analysis code, a codebook, the fitted model objects behind the standardised
-> risks and a deterministic script that generates a synthetic cohort of identical structure
-> and missingness (seed 20261024) are openly available at Zenodo (concept DOI 10.5281/zenodo.23677282, which resolves to the
-> latest version; the version used here is 1.0.8); the analysis specification is provided as
-> Supplementary Methods.
-> Estimates underlying every table and figure are reported in the manuscript and
-> supplementary tables.
+> **Data availability:** CHARLS data are available to registered users from the China Health and
+> Retirement Longitudinal Study (http://charls.pku.edu.cn) under a data-use agreement that
+> prohibits redistribution; the individual-level files therefore cannot be deposited or shared
+> by the authors. Estimates underlying every table and figure are reported in the manuscript and
+> the supplementary tables.
+>
+> **Code availability:** The analysis code, a codebook, the fitted model objects behind the
+> standardized risks and a deterministic script that generates a synthetic cohort of identical
+> structure and missingness (seed 20261024) are openly available at GitHub
+> (https://github.com/wu-yijing/charls-grip-repro) and archived at Zenodo (concept DOI
+> 10.5281/zenodo.23677282, which resolves to version 1.0.11, the version that accompanies this
+> submission). The analysis specification is provided as Supplementary Methods.
 
-The quoted passage is the statement as it appears in the manuscript. The code is also browsable at
+The quoted passages are the statements as they appear in the manuscript. The code is also browsable at
 <https://github.com/wu-yijing/charls-grip-repro>, but the Zenodo record — not the repository — is the
 archival copy, and the one to cite.
 

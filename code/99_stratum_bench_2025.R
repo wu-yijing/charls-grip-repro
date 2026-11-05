@@ -1,8 +1,11 @@
 # 99_stratum_bench_2025.R -- the no-change benchmark under the 2025 cut-offs
 #
-# Run from the analysis directory that contains out/jamda_full.rds (built by
-# code/01_build.R). Nothing here reads CHARLS data. A different directory can be
-# named once with CHARLS_ANALYSIS_DIR; no path is hard-coded.
+# Run from the repository root, immediately after 96_stratum_bench.R (it is a
+# step in run_all.sh). It reads out/jamda_full.rds, which 01_build.R writes from
+# whichever raw files are in data/raw_synthetic; nothing here reads CHARLS data,
+# so the pipeline exercises it on the synthetic cohort as a structural check.
+# A different analysis directory can be named once with CHARLS_ANALYSIS_DIR; no
+# path is hard-coded.
 #
 # 96_stratum_bench.R runs the benchmark within age strata at the AWGS 2019
 # cut-offs. The paper's policy claim, however, is about the 2025 age-specific
@@ -109,8 +112,25 @@ write.csv(res, con, row.names = FALSE)
 close(con)
 options(width = 200); print(res, digits = 3, row.names = FALSE)
 
-cat("\nChecks: all 2019 = 59.5%, <65 = 67.8%, >=65 = 52.1% (the values published for 96_stratum_bench.R).\n")
-cat("The '50-64, 2025' row is the benchmark quoted in the Results:",
-    sprintf("expected %.1f%% against %.1f%% observed.\n",
-            res$expected[res$setting == "50-64, 2025"],
-            res$observed[res$setting == "50-64, 2025"]))
+## ---- closing report -------------------------------------------------------
+# The published figures come from the CHARLS cohort (n = 6,052). run_all.sh
+# runs this step on the synthetic cohort, where the numbers are a structural
+# smoke test; the check below fires only on the real cohort, so a pipeline run
+# is never counted as a reproduction of the manuscript's values.
+targets <- c("all, 2019" = 59.5, "<65, 2019" = 67.8, ">=65, 2019" = 52.1,
+             "50-64, 2025" = 57.3)
+n_base <- nrow(base)
+cat("\n")
+if (n_base == 6052) {
+  got <- res$expected[match(names(targets), res$setting)]
+  for (i in seq_along(targets)) {
+    cat(sprintf("check %-12s expected %5.1f%% | published %5.1f%% | %s\n",
+                names(targets)[i], got[i], targets[i],
+                if (abs(got[i] - targets[i]) < 0.2) "OK" else "MISMATCH"))
+  }
+  stopifnot(all(abs(got - targets) < 0.2))
+} else {
+  cat(sprintf("cohort n = %d (not the CHARLS cohort): the rows above are a structural\n", n_base))
+  cat("smoke test. The published run has n = 6,052 and gives 59.5 / 67.8 / 52.1 / 57.3;\n")
+  cat("the 57.3% is the benchmark quoted in the Results against 63.7% observed.\n")
+}
