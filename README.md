@@ -4,8 +4,8 @@
 
 **Two-year agreement of low grip strength classification and the prognostic value of an earlier reading beyond the current one: a cohort study of 6,052 Chinese adults**
 
-This repository contains 56 R scripts and five Python utilities, a
-shared R helper library (`code/lib.R`), two further R scripts that need the CHARLS release (`code/charls_only/`), the analysis specification, a deterministic generator of a synthetic
+This repository contains 57 R scripts and five Python utilities, a
+shared R helper library (`code/lib.R`), further R scripts that need the CHARLS release (`code/charls_only/`), the analysis specification, a deterministic generator of a synthetic
 dataset of identical structure, and the fitted model objects for the manuscript. It contains **no CHARLS
 data** — see [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) for why, and for what is shared instead.
 
@@ -113,6 +113,11 @@ matches of the simulated 2013 value: 55.6%, 59.5% and 58.6%), and the two figure
 read the aggregates in `manifest/fig_inputs/`. Those four CSVs are the exact inputs behind the
 submitted figures and contain no respondent-level data.
 
+Version 1.0.10 adds `code/charls_only/99_stratum_bench_2025.R`, which carries the no-change benchmark
+under the **2025** age-specific cut-offs. `96_stratum_bench.R` runs that benchmark at the AWGS 2019
+cut-offs only; the paper's policy claim is about the 2025 thresholds in the 50-64 band, where the
+benchmark expects 57.3% against 63.7% observed. See the section at the end of this file.
+
 ---
 
 ## Data access
@@ -171,3 +176,21 @@ points more participants as low (ratio 1.19, 95% CI 1.9-3.1) and two-year revers
 2.3 points lower (ratio 0.96, 95% CI -4.8 to 0.3). Because the maximum-of-four value is
 never below the dominant-hand value, the former classification is a subset of the latter:
 no participant moves in the opposite direction.
+
+---
+
+## Supplementary Table S27, the 2025 benchmark (v1.0.10)
+
+`code/charls_only/99_stratum_bench_2025.R` runs the no-change model of `96_stratum_bench.R` with the
+2025 age-specific cut-offs. The generative model, the calibration and the error term are unchanged:
+a true 2011 value is drawn from the observed 2011 distribution, a 2013 reading follows with
+within-person error estimated in participants who stayed above the cut-off, and the simulated
+reading is rescaled to the observed marginal. Only the cut-offs and the classification change, so
+the three 2019 rows are a check that the two scripts agree (59.5%, 67.8% and 52.1%).
+
+The row that matters for the manuscript is `50-64, 2025`: 433 of 3,213 readings are low at the 2025
+thresholds, observed reversion is 63.7% (58.3-69.0) and the benchmark expects **57.3%** (95%
+simulation interval 42.9-71.8). The classification itself is built by `code/01_build.R`
+(`low11_25` / `low13_25`: <34 and <20 kg at 50-64 years, <28 and <18 kg above it), so the whole
+chain runs from `out/jamda_full.rds` with no CHARLS data read here. The output is archived as
+`manifest/s27/JFA_stratum_bench_2025.csv`, which reproduces byte for byte.

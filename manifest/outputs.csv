@@ -31,7 +31,7 @@ Table S23,handling of the 2013 ADL block that was entirely missing,80b_m3_adl_mi
 Table S24,decision arithmetic for repeating a low reading,hand-computed from Table 1 and Table S11,-,included
 Table S25,no-change benchmark with the error estimated by distance to the cut-off,91b_hetero_stratified.R,console,included
 Table S26,two-state latent Markov model of the three readings,94_rev29_hmm2.R,console,included
-Table S27,agreement and two-year reversion by age stratum,95_rev31_age.R + 96_stratum_bench.R,console,included
+Table S27,agreement and two-year reversion by age stratum,95_rev31_age.R + 96_stratum_bench.R + code/charls_only/99_stratum_bench_2025.R,console + manifest/s27/JFA_stratum_bench_2025.csv,included
 Table S28,2025 cut-offs applied to the dominant-hand reading,code/charls_only/97_s28_dominant_2025.R,out/S28_dominant_2025.csv,included
 Table S37,"Full AWGS 2019 definition in all 6,052 participants",code/charls_only/98_full_awgs_icc.R,manifest/s37_s38/JFA_full_awgs.csv,included
 Table S38,Short-interval ICC 0.80-0.99 sensitivity,code/charls_only/98_full_awgs_icc.R,manifest/s37_s38/JFA_icc_sensitivity.csv,included
