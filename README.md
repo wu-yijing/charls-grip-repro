@@ -196,3 +196,16 @@ simulation interval 42.9-71.8). The classification itself is built by `code/01_b
 chain runs from `out/jamda_full.rds` with no CHARLS data read here. The output is archived as
 `manifest/s27/JFA_stratum_bench_2025.csv`, which reproduces byte for byte. On the synthetic cohort the step prints a note that its numbers are a structural
 smoke test; the published values are checked only when the cohort has n = 6,052.
+
+---
+
+## Version 1.0.12 — S41 generator and submitted title
+
+`code/jfa_20_cutoff_table.R` regenerates **Supplementary Table S41** (two-year reproduction under
+the AWGS 2019, EWGSOP2 and FNIH cut-offs). It reads `out/jamda_full.rds` and writes
+`out/S41_three_cutoffs.csv`; its gate checks the published AWGS row, so it is intentionally not a
+step of `run_all.sh` — on the synthetic cohort those published values are not reproducible. Run it
+against the CHARLS release when that table needs to be rebuilt.
+
+`.zenodo.json` and `CITATION.cff` now carry the submitted title "Two-year agreement of a low handgrip strength classification in 9,116 Chinese adults: a single reading is a provisional label" and
+version 1.0.12. No estimate, exhibit or pipeline step changed.
