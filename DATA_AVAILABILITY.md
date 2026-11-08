@@ -12,7 +12,7 @@
 > standardized risks and a deterministic script that generates a synthetic cohort of identical
 > structure and missingness (seed 20261024) are openly available at GitHub
 > (https://github.com/wu-yijing/charls-grip-repro) and archived at Zenodo (version DOI
-> 10.5281/zenodo.24038233 for version 1.0.12, the version that accompanies this submission;
+> 10.5281/zenodo.24055310 for version 1.0.13, the version that accompanies this submission;
 > concept DOI 10.5281/zenodo.23677282, which resolves to the latest version). The analysis
 > specification is provided as Supplementary Methods.
 
