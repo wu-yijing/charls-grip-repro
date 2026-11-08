@@ -33,7 +33,7 @@ for (g in c(0, 1)) {
       sum(s$a13 == 0, na.rm = TRUE), 100*mean(s$a13 == 0, na.rm = TRUE)))
 }
 
-cat("\n===== m5. 9,125 vs 9,116 =====\n")
+cat("\n===== m5. 9125 vs 9116 =====\n")
 cat("grip at both waves (any value):", sum(!is.na(m$g11) & !is.na(m$g13)), "\n")
 cat("classifiable at both waves (age/sex known):", n_both, "\n")
 cat("difference:", sum(!is.na(m$g11) & !is.na(m$g13)) - n_both, "\n")

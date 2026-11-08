@@ -89,7 +89,7 @@ md = f"""# Supplementary Material
 
 ## Supplementary Table S1. Re-analysis with the AWGS 2025 age-specific thresholds
 
-**Panel A. Reclassification.** Low grip was defined as <28 kg in men and <18 kg in women at all ages (AWGS 2019), or as <34 kg in men and <20 kg in women at ages 50 to 64 years with <28 kg and <18 kg at ages 65 years and older (AWGS 2025). All rows are computed in the analytic sample (n = 6,052; recomputed from out/jamda_full.rds, R 4.5.2, 2026-10-23); among the 9,116 participants with classifiable grip measurements at both waves, the reversion proportion under the 2019 cut-offs was 59.8%.
+**Panel A. Reclassification.** Low grip was defined as <28 kg in men and <18 kg in women at all ages (AWGS 2019), or as <34 kg in men and <20 kg in women at ages 50 to 64 years with <28 kg and <18 kg at ages 65 years and older (AWGS 2025). All rows are computed in the analytic sample (n = 6,052; recomputed from out/jamda_full.rds, R 4.5.2, 2026-10-23); among the 9116 participants with classifiable grip measurements at both waves, the reversion proportion under the 2019 cut-offs was 59.8%.
 
 | Characteristic | AWGS 2019 | AWGS 2025 |
 | --- | --- | --- |
