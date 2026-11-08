@@ -11,9 +11,10 @@
 > **Code availability:** The analysis code, a codebook, the fitted model objects behind the
 > standardized risks and a deterministic script that generates a synthetic cohort of identical
 > structure and missingness (seed 20261024) are openly available at GitHub
-> (https://github.com/wu-yijing/charls-grip-repro) and archived at Zenodo (concept DOI
-> 10.5281/zenodo.23677282, which resolves to version 1.0.11, the version that accompanies this
-> submission). The analysis specification is provided as Supplementary Methods.
+> (https://github.com/wu-yijing/charls-grip-repro) and archived at Zenodo (version DOI
+> 10.5281/zenodo.24038233 for version 1.0.12, the version that accompanies this submission;
+> concept DOI 10.5281/zenodo.23677282, which resolves to the latest version). The analysis
+> specification is provided as Supplementary Methods.
 
 The quoted passages are the statements as they appear in the manuscript. The code is also browsable at
 <https://github.com/wu-yijing/charls-grip-repro>, but the Zenodo record — not the repository — is the
