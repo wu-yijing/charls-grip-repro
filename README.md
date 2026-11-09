@@ -2,7 +2,7 @@
 
 [![pipeline](https://github.com/wu-yijing/charls-grip-repro/actions/workflows/repro.yml/badge.svg)](https://github.com/wu-yijing/charls-grip-repro/actions/workflows/repro.yml)
 
-**Two-year agreement of a low handgrip strength classification in 9116 Chinese adults: a single reading should not be reported as a persistent state**
+**Two-year agreement of a low handgrip strength classification in 9116 Chinese adults: reproduction is lowest near the cut-off**
 
 This repository contains 57 R scripts and five Python utilities, a
 shared R helper library (`code/lib.R`), further R scripts that need the CHARLS release (`code/charls_only/`), the analysis specification, a deterministic generator of a synthetic
@@ -196,6 +196,14 @@ simulation interval 42.9-71.8). The classification itself is built by `code/01_b
 chain runs from `out/jamda_full.rds` with no CHARLS data read here. The output is archived as
 `manifest/s27/JFA_stratum_bench_2025.csv`, which reproduces byte for byte. On the synthetic cohort the step prints a note that its numbers are a structural
 smoke test; the published values are checked only when the cohort has n = 6,052.
+
+---
+
+## Version 1.0.14 — archival metadata aligned with the revised manuscript title
+
+The manuscript title is now *Two-year agreement of a low handgrip strength classification in 9116 Chinese adults: reproduction is lowest near the cut-off*. `.zenodo.json`, `CITATION.cff` and the header of this README carry that title and version 1.0.14. Earlier version notes below quote the titles that were current when those versions were published; they are retained as historical records.
+
+Only bibliographic metadata changed. No script, estimate, exhibit, figure or `run_all.sh` step changed; no CHARLS microdata were added. The concept DOI `10.5281/zenodo.23677282` is unchanged and resolves to the latest version; the version DOI is allocated when the release is published and is recorded in the manuscript's Availability of data and materials statement and in the reference list.
 
 ---
 

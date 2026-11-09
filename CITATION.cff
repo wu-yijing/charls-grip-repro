@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code or the synthetic data, please cite the article and this repository."
-title: "Reproducibility package for 'Two-year agreement of a low handgrip strength classification in 9116 Chinese adults: a single reading should not be reported as a persistent state'"
+title: "Reproducibility package for 'Two-year agreement of a low handgrip strength classification in 9116 Chinese adults: reproduction is lowest near the cut-off'"
 type: software
 authors:
   - family-names: Wu
@@ -15,7 +15,7 @@ authors:
   - family-names: Jin
     given-names: Guoxi
 license: MIT
-version: 1.0.13
+version: 1.0.14
 doi: "10.5281/zenodo.23677282"
 repository-code: "https://github.com/wu-yijing/charls-grip-repro"
 keywords:
