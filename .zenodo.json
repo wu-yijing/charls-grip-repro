@@ -38,7 +38,7 @@
   "related_identifiers": [
     {
       "relation": "isSupplementTo",
-      "identifier": "https://github.com/wu-yijing/charls-grip-repro/tree/v1.0.6",
+      "identifier": "https://github.com/wu-yijing/charls-grip-repro/tree/v1.0.14",
       "scheme": "url"
     }
   ],
